@@ -282,22 +282,9 @@ function render() {
 
   // Viền nhấp nháy khi chưa drag
   if (!dragging) {
-    ctx.save()
+    cctx.save()
 ctx.beginPath()
-const r = LOGO_R * 0.22  // bo góc
-const x = cx - LOGO_R
-const y = cy - LOGO_R
-const s = LOGO_R * 2
-ctx.moveTo(x + r, y)
-ctx.lineTo(x + s - r, y)
-ctx.quadraticCurveTo(x + s, y, x + s, y + r)
-ctx.lineTo(x + s, y + s - r)
-ctx.quadraticCurveTo(x + s, y + s, x + s - r, y + s)
-ctx.lineTo(x + r, y + s)
-ctx.quadraticCurveTo(x, y + s, x, y + s - r)
-ctx.lineTo(x, y + r)
-ctx.quadraticCurveTo(x, y, x + r, y)
-ctx.closePath()
+ctx.arc(cx, cy, LOGO_R, 0, Math.PI * 2)  // ← clip tròn
 ctx.clip()
   }
 
